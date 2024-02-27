@@ -1,0 +1,19 @@
+
+
+.create-post-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.createBtn{
+    width: 60vw !important;
+    min-width: 280px !important;
+    background-color: #4db068;
+}
+.createTextbox{
+    width: 60vw !important;
+    min-width: 280px !important;
+    border-radius: 5px !important;
+}

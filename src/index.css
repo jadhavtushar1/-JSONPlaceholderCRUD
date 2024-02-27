@@ -5,9 +5,33 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #1a1a1a;
 }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.wrapCards{
+ 
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(200px,3fr));
+  gap:15px;
+}
+.picksParentContainer{
+  
+}
+.custom-clr{
+  background-color: #303030;
+  color: white  !important;
+  
+}
+.navbar-details{
+  background-color: #303030 !important;
+}
+.navBackColor {
+  background-color: #536682 !important;
+  color: aliceblue !important;
 }

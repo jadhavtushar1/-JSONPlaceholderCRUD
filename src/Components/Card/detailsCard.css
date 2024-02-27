@@ -1,0 +1,20 @@
+.postCard{
+   background-color: #545454;
+   color: white;
+   transition: transform 0.5s ease-in-out;
+   cursor:default;
+}
+.btn-posn{
+    margin-right: 20px;
+}
+.btn1{
+    background-color: #718aab;
+}
+.btn2{
+    background-color: #7a4c56;
+}
+.postCard :hover{
+    background-color: #333233 ;
+
+    transform: scale(1.05);
+}
