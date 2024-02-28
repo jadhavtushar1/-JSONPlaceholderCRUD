@@ -89,7 +89,6 @@ const crudSlice = createSlice({
       });
       builder.addCase(fetchData.fulfilled, (state, action) => {
         state.data = action.payload;
-        console.log(state.data)
         state.error = false;
       });
       builder.addCase(fetchData.rejected, (state, action) => {
