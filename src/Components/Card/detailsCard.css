@@ -18,3 +18,11 @@
 
     transform: scale(1.05);
 }
+.cardDetails{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.cardActions{
+    margin-top: 20px;
+}

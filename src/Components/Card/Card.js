@@ -16,11 +16,16 @@ const Card = ({data})=>{
         <>
         <div class="card postCard">
         <div class="card-body cardDetails">
+            <div>
+
+            
             <h5 class="card-title cardDetails">{data?.title}</h5>
             
             <p class="card-text">{data?.body}</p>
-            {data?.userId==2 &&
+            </div>
             <div>
+            {data?.userId==2 &&
+            <div className='cardActions'>
                 
             
             <button type="button" class="btn btn-primary btn-posn btn1" onClick={()=>handleUpdateClick()}>Update</button>
@@ -28,6 +33,7 @@ const Card = ({data})=>{
         
             </div>
             }
+            </div>
         </div>
         </div>
         </>
