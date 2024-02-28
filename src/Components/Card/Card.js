@@ -2,7 +2,7 @@ import './detailsCard.css'
 import { useNavigate } from 'react-router-dom'
 import { UseDispatch, useDispatch } from 'react-redux'
 import { deletePost,fetchData } from '../../Redux/slicer'
-const Card = ({pageName,data})=>{
+const Card = ({data})=>{
     const dispatch = useDispatch()
 
     const navigate = useNavigate()
@@ -10,7 +10,7 @@ const Card = ({pageName,data})=>{
         navigate('/CreatePostPage',{state:{data}})
     }
     const handleDelete =async()=>{
-        await dispatch(deletePost( data?.id))
+        dispatch(deletePost( data?.id))
     }
     return(
         <>

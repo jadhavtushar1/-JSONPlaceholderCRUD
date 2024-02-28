@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { useEffect } from "react";
 
 export const fetchData = createAsyncThunk(
     
@@ -68,7 +67,7 @@ export const deletePost = createAsyncThunk(
         const response = await axios.delete(
           `https://jsonplaceholder.typicode.com/posts/${postId}`
         );
-        return response.data;
+        return postId;
       } catch (error) {
         throw error;
       }
@@ -78,58 +77,38 @@ export const deletePost = createAsyncThunk(
 const crudSlice = createSlice({
   name: "crudApp",
   initialState: {
-    data: null,
+    data: [],
     error: false,
   },
+  
   extraReducers: (builder) => {
     builder
       .addCase(fetchData.pending, (state) => {
-        state.data = null;
-        state.error = false;
-      })
-      .addCase(fetchData.fulfilled, (state, action) => {
-        state.data = action.payload;
-        state.error = false;
-      })
-      .addCase(fetchData.rejected, (state, action) => {
-        state.data = null;
-        state.error = true;
-      })
-      // .addCase(createPost.pending, (state) => {
-      //   state.data = null;
-      //   state.error = false;
-      // })
-      // .addCase(createPost.fulfilled, (state, action) => {
-      //   state.data = action.payload;
-      //   state.error = false;
-      // })
-      // .addCase(createPost.rejected, (state, action) => {
-      //   state.data = null;
-      //   state.error = true;
-      // })
-      // .addCase(deletePost.pending, (state) => {
-      //   state.data = null;
-      //   state.error = false;
-      // })
-      // .addCase(deletePost.fulfilled, (state, action) => {
-      //   // Here you can handle the fulfilled action, maybe update the state or show a message
-      //   // For example, you might remove the deleted post from the state if you're keeping a list of posts
-      // })
-      // .addCase(deletePost.rejected, (state, action) => {
-      //   // Handle the case where the delete request failed
-      //   state.error = true;
-      // });
-      // .addCase(updatePost.pending, (state) => {
-      //   state.error = false;
-      // })
-      // .addCase(updatePost.fulfilled, (state, action) => {
-
-      //   state.error = false;
-      // })
-      // .addCase(updatePost.rejected, (state, action) => {
        
-      //   state.error = false;
-      // })
+        state.error = false;
+      });
+      builder.addCase(fetchData.fulfilled, (state, action) => {
+        state.data = action.payload;
+        console.log(state.data)
+        state.error = false;
+      });
+      builder.addCase(fetchData.rejected, (state, action) => {
+        state.data = [];
+        state.error = true;
+      });
+      builder.addCase(deletePost.pending, (state) => {
+        // state.data = null;
+        state.error = false;
+      });
+      builder.addCase(deletePost.fulfilled, (state, action) => {
+        const newData = state.data.filter((element)=> element.id !== action.payload)
+        
+        state.data = newData
+      })
+      builder.addCase(deletePost.rejected, (state, action) => {
+        state.error = true;
+      });
+      
   },
 });
 

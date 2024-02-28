@@ -12,10 +12,6 @@ const MyPosts = () => {
     useEffect(()=>{
         dispatch(fetchData(2))
     },[])
-    const handleDelete = (postId) => {
-        const newData = data.filter(post => post.id !== postId);
-        
-    }
 
     return (
         <>
@@ -23,7 +19,7 @@ const MyPosts = () => {
         <div className='picksParentContainer p-4'>
         <div className='bookGridarent wrapCards'>
         {data?.length >0 && data?.map(post => (
-                    <Card key={post.id} data = {post} pageName={'myPosts'} onDelete={() => handleDelete(post.id)} />
+                    <Card key={post.id} data = {post} pageName={'myPosts'}  />
                 ))}
     </div>
     </div>
